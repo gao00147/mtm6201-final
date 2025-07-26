@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zambua</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .navbar-header img {
+      width: 120px;
+    }
+    .main-menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      font-weight: 500;
+    }
+    .main-menu li {
+      cursor: pointer;
+    }
+    .hero-area,
+    .about-area,
+    .contact-area,
+    .subscribe-area,
+    .footer-area {
+      padding: 60px 20px;
+    }
+    .hero-area .row,
+    .about-area .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .col-md-6,
+    .col-md-12 {
+      flex: 1;
+      min-width: 300px;
+    }
+    .hero-thumb img,
+    .about-thumb img {
+      max-width: 100%;
+      height: auto;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    input[type="email"] {
+      padding: 12px;
+      width: 250px;
+    }
+    .btn {
+      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+    }
+    @media screen and (max-width: 1024px) {
+      .main-menu {
+        gap: 20px;
+        font-size: 14px;
+      }
+    }
+    @media screen and (max-width: 852px) {
+      .main-menu {
+        gap: 10px;
+        font-size: 12px;
+      }
+      input[type="email"] {
+        width: 100%;
+      }
+      form {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href=" "><img src="images/logo.png" alt="logo" /></a>
+      </div>
+      <ul class="main-menu nav navbar-nav navbar-right">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Area -->
+  <section class="hero-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hero-thumb">
+            <img src="images/music.png" alt="Hero Image" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="hero-content">
+            <h1>The Pleasures of Music</h1>
+            <p>DJ Zambua is one of the best DJs from Europe, so we are glad to invite you all into our club to dance on the best music</p>
+            <button class="btn">Contact Me</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Area -->
+  <section class="about-area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="about-thumb">
+            <img src="images/about.png" alt="About Image" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="about-content">
+            <h2>About Me</h2>
+            <p>I'm a music lover, beat maker, and nightlife enthusiast. Born and raised in Europe, I've been spinning tracks and curating unforgettable club experiences for over 8 years. From underground house to mainstream EDM, my goal is always the same: to make people move.</p>
+            <p>Whether I'm performing live sets at international festivals or producing remixes in the studio, I'm constantly experimenting with sound, rhythm, and energy. Music isn't just what I do — it's who I am. Let's connect and make your next event unforgettable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Area -->
+  <section class="contact-area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="contact-content">
+            <h2>Contact Me</h2>
+            <p>So we are glad to invite you all into our club to dance on the best music to all time best noise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe Area -->
+  <section class="subscribe-area section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="subscribe-content">
+            <h3>We Hope to Hear You.</h3>
+            <p>So we are glad to invite you all into our club to dance on.</p>
+            <form action="#">
+              <input type="email" placeholder="Enter your email" />
+              <button type="submit" class="btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Area -->
+  <footer class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Zambua is a DJ and music producer delivering electrifying beats and unforgettable performances across the globe. Stay connected for updates and exclusive mixes.</p>
+        </div>
+        <div class="col-md-6 text-right">
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <div class="footer-copy">© 2025 | Alright Reserved by ZainikLab</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
