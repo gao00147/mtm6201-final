@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap');
+
+:root {
+  --orange: #E27D26;
+  --black: #1C1C1C;
+  --white: #FFFFFF;
+  --offwhite: #FFFFF9;
+  --gray: #919191;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter Tight', sans-serif;
+  font-weight: 400;
+  background: var(--offwhite);
+  color: var(--black);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+/* Header & Nav */
+.site-header {
+  background: var(--offwhite);
+  padding: 38px 0 16px 0;
+  border-bottom: 1px solid var(--gray);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 40px;
+}
+
+.site-nav a {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  margin-left: 40px;
+  letter-spacing: 0.2px;
+  transition: color .2s;
+}
+
+.site-nav a:first-child { margin-left: 0; }
+
+.site-nav a:hover {
+  color: var(--orange);
+}
+
+/* Book Now & Read All Reviews */
+.btn {
+  font-size: 27px;
+  font-weight: 400;
+  background: var(--orange);
+  color: var(--white);
+  padding: 16px 48px;
+  border: none;
+  border-radius: 999px;
+  letter-spacing: 2px;
+  display: inline-block;
+  margin-top: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(226,125,38,0.08);
+  transition: background 0.18s;
+  line-height: 1.1;
+  text-align: center;
+}
+.btn:hover,
+.slogan .btn:hover {
+  background: #c96d1f;
+}
+
+/* Hero Section */
+.hero {
+  padding: 80px 0 32px 0;
+  text-align: center;
+}
+.hero h2,
+.hero p {
+  font-size: 55px;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+/* Small Size Text */
+.slash-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gray);
+  margin: 0 0 12px 0;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Main Title */
+h2 {
+  font-size: 85px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+/* Subtitle */
+.section-desc {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--black);
+  text-align: center;
+  margin: 24px 0 32px 0;
+  line-height: 1.25;
+}
+
+/* Learn More */
+.learn-more {
+  font-size: 20px;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 2px;
+  margin-top: 8px;
+  display: inline-block;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.learn-more:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+
+/* Card Group*/
+.card-group {
+  display: flex;
+  gap: 28px;
+  margin-top: 16px;
+  justify-content: center;
+}
+.card-group img {
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(28,28,28,0.04);
+}
+
+/* About Us */
+.two-col {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  justify-content: center;
+  margin: 48px 0 0 0;
+}
+.two-col img {
+  width: 360px;
+  border-radius: 16px;
+}
+
+.text-block {
+  flex: 1;
+}
+
+/* Footer Image */
+.site-footer img {
+  width: 100%;
+  display: block;
+}
+
+/* Travel Review Section */
+.travel-review {
+  text-align: center;
+  margin: 80px 0 60px 0;
+}
+.travel-review .slash-title {
+  margin-bottom: 16px;
+}
+.travel-review blockquote {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 24px 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.review-author {
+  font-size: 22px;
+  color: #919191;
+  margin-top: 12px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* SLOW — TRAVEL Button */
+.slogan {
+  text-align: center;
+  margin: 60px 0 0 0;
+}
+.slow-travel {
+  font-size: 173px;
+  font-weight: 500; /* medium */
+  letter-spacing: 8px;
+  text-align: center;
+  margin: 0 0 32px 0;
+  line-height: 1.02;
+}
+.slogan .btn {
+  font-size: 27px;
+  font-weight: 400;
+  background: var(--orange);
+  color: var(--white);
+  padding: 14px 40px;
+  border: none;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-top: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(226,125,38,0.08);
+  transition: background 0.18s;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  .container { padding: 0 18px; }
+  .slow-travel { font-size: 96px; }
+}
+@media (max-width: 1024px) {
+  .site-header { padding: 18px 0 10px 0; }
+  h2 { font-size: 48px; }
+  .section-desc { font-size: 24px; }
+  .btn, .slogan .btn { font-size: 20px; padding: 12px 28px; }
+  .card-group { gap: 16px; }
+  .two-col { flex-direction: column; gap: 20px; }
+  .two-col img { width: 90%; }
+  .slogan .slow-travel { font-size: 54px; }
+  .travel-review blockquote { font-size: 24px; }
+  .review-author { font-size: 16px; }
+}
+@media (max-width: 768px) {
+  .site-header .container { flex-direction: column; gap: 14px; }
+  .site-nav a { font-size: 16px; margin-left: 16px; }
+  h2 { font-size: 32px; }
+  .section-desc { font-size: 18px; }
+  .btn, .slogan .btn { font-size: 16px; padding: 10px 16px; }
+  .hero { padding: 36px 0 16px 0; }
+  .hero h2, .hero p { font-size: 22px; }
+  .card-group { flex-direction: column; gap: 10px; }
+  .card-group img, .two-col img { max-width: 100%; }
+  .slogan .slow-travel { font-size: 30px; }
+  .travel-review blockquote { font-size: 16px; }
+  .review-author { font-size: 14px; }
+}
