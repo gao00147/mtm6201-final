@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevAgency-About</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <picture>
+          <source media="(min-width: 1440px)" srcset="images/logo-tablet-header.png" />
+          <img src="images/logo-mobile-header.png" alt="DevAgency logo" />
+        </picture>
+      </a>
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" itemscope itemtype="https://schema.org/WebPage">
+
+    <!-- Hero -->
+    <section class="blog-hero" aria-label="About Us hero banner">
+      <picture>
+        <source media="(min-width: 1440px)"
+          srcset="images/Blog-bg-header-tablet.png"
+          sizes="100vw" />
+        <img
+          src="images/Blog-bg-header-mobile.png"
+          srcset="images/Blog-bg-header-mobile.png 400w, images/Blog-bg-header-tablet.png 1200w"
+          sizes="100vw"
+          alt="About Us page header background" />
+      </picture>
+      <div class="blog-hero-title">
+        <h1>About Us</h1>
+      </div>
+    </section>
+
+    <!-- Know More -->
+    <section class="know-more" aria-label="Know More About Dev Agency">
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-12 col-md-6">
+            <picture>
+              <source media="(min-width: 1440px)" srcset="images/about-know-more-tablet.jpg" sizes="500px" />
+              <img
+                src="images/about-know-more-mobile.jpg"
+                srcset="images/about-know-more-mobile.jpg 400w, images/about-know-more-tablet.jpg 500w"
+                sizes="(max-width: 1439px) 90vw, 500px"
+                alt="Dev Agency team member" />
+            </picture>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <h2>Know More About - Dev Agency & Their Process</h2>
+            <p>Nulla volutpat enim lorem, non volutpat tortor consequa ac Quisque ipsum arcu, vehicula sit amet tempor non, blandite proin dignissim vitae ipsum a laoreet. In molestie imperdiet vehicula urna. Ut ullamcorper neque dui, imperdiet ornared at augue. Donec semper velit eget urna aliquet.</p>
+            <div class="about-stats">
+              <div>
+                <strong>224k+</strong>
+                <span>Happy Clients</span>
+              </div>
+              <div>
+                <strong>42k+</strong>
+                <span>Projects Done</span>
+              </div>
+              <div>
+                <strong>360D+</strong>
+                <span>Days Of Work</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-learn-more">Learn More</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team Members -->
+    <section class="team-section" aria-label="Our Team Members">
+      <div class="container text-center">
+        <h2>Our Team Members</h2>
+        <p>Praesent placaerated egestas egestas cras rhone magna rutrum tellus laoreet</p>
+        <div class="row g-4 mt-4">
+
+          <div class="col-12 col-md-4">
+            <div class="team-card">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="images/about-members-fs-tablet.jpg" sizes="300px" />
+                <img
+                  src="images/about-members-fs-mobile.jpg"
+                  srcset="images/about-members-fs-mobile.jpg 300w, images/about-members-fs-tablet.jpg 400w"
+                  sizes="(max-width: 1439px) 90vw, 300px"
+                  alt="Freddie Stewart UI Designer" />
+              </picture>
+              <div class="team-card-body">
+                <h3>Freddie Stewart</h3>
+                <p>Ui Designer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="team-card">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="images/about-members-cb-tablet.jpg" sizes="300px" />
+                <img
+                  src="images/about-members-cb-mobile.jpg"
+                  srcset="images/about-members-cb-mobile.jpg 300w, images/about-members-cb-tablet.jpg 400w"
+                  sizes="(max-width: 1439px) 90vw, 300px"
+                  alt="Cameron Butcher Ux Designer" />
+              </picture>
+              <div class="team-card-body">
+                <h3>Cameron Butcher</h3>
+                <p>Ux Designer</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="team-card">
+              <picture>
+                <source media="(min-width: 1440px)" srcset="images/about-members-gw-tablet.jpg" sizes="300px" />
+                <img
+                  src="images/about-members-gw-mobile.jpg"
+                  srcset="images/about-members-gw-mobile.jpg 300w, images/about-members-gw-tablet.jpg 400w"
+                  sizes="(max-width: 1439px) 90vw, 300px"
+                  alt="Gabriel Woods Web Designer" />
+              </picture>
+              <div class="team-card-body">
+                <h3>Gabriel Woods</h3>
+                <p>Web Designer</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <a href="index.html">
+        <picture>
+          <source media="(min-width: 1440px)" srcset="images/logo-tablet-footer.png" />
+          <img src="images/logo-mobile-footer.png" alt="DevAgency logo" />
+        </picture>
+      </a>
+      <ul class="footer-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <p class="copyright d-none d-md-block">Copyright @ YG 2026, All rights reserved</p>
+      <p class="copyright d-md-none">Copyright @ YG 2026</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
