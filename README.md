@@ -14,3 +14,4 @@ Bootstrap 5: https://getbootstrap.com
 Google Fonts - Nunito: https://fonts.google.com/specimen/Nunito
 Google Fonts - Mulish: https://fonts.google.com/specimen/Mulish
 Blog page photos from Unsplash: https://unsplash.com
+Figma design mockup: https://www.figma.com/design/C3LXB4pUeH7dsoVTAFgBsX/mtm6201-final?m=dev&t=ortgtBgnAyUZtP4j-1
