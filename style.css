@@ -100,17 +100,27 @@ h1, h2, h3 {
 }
 
 /* ===== Home - Hero ===== */
-.hero-section {
+.hero-wrapper {
+  position: relative;
+}
+
+.hero-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.hero-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   text-align: center;
 }
 
-.hero-section h1 {
+.hero-title h1 {
   font-family: var(--font-heading);
   font-weight: 800;
-}
-
-.hero-section img {
-  width: 100%;
 }
 
 /* ===== Home - Our Projects ===== */
