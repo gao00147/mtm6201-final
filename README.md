@@ -63,7 +63,7 @@ All images used in this project are stock images obtained from free-to-use sourc
 - **Logo** (`logo-*.png`) – from design template
 
 ### Design Reference
-- Figma design mockups provided as part of the course assignment (designed by instructor/course materials)
+- [Figma design mockups](https://www.figma.com/design/C3LXB4pUeH7dsoVTAFgBsX/mtm6201-final?m=dev&t=ortgtBgnAyUZtP4j-1) provided as part of the course assignment (designed by instructor/course materials)
 
 ---
 
