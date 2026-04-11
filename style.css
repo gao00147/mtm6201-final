@@ -1,18 +1,25 @@
-/* ===== CSS Variables ===== */
+/* ===== CSS Variables =====
+   Storing colours and fonts as custom properties so they can be reused
+   throughout the stylesheet without repeating values. If the brand colour
+   changes, I only need to update it in one place here.
+   ============================= */
 :root {
   --color-bg: #ffffff;
-  --color-primary: #ff733b;
+  --color-primary: #ff733b;       /* brand orange used for buttons and active links */
   --color-text: #000000;
-  --color-footer-bg: #241008;
+  --color-footer-bg: #241008;     /* dark brown footer background */
   --color-btn-see-more-bg: #f4ece0;
-  --color-card-blue: #e3f8fa;
-  --color-card-beige: #f4ece0;
-  --color-card-purple: #f5e6fe;
-  --font-heading: 'Nunito', sans-serif;
-  --font-body: 'Mulish', sans-serif;
+  --color-card-blue: #e3f8fa;     /* light blue background for first provide card */
+  --color-card-beige: #f4ece0;    /* warm beige used for second card and blog card body */
+  --color-card-purple: #f5e6fe;   /* soft purple for third provide card */
+  --font-heading: 'Nunito', sans-serif;   /* rounded, bold font for headings */
+  --font-body: 'Mulish', sans-serif;      /* clean sans-serif for body text */
 }
 
-/* ===== Base ===== */
+/* ===== Base Styles =====
+   Setting global defaults so all text and headings follow the design system.
+   overflow-x: hidden prevents any accidental horizontal scroll on mobile.
+   ======================== */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -29,7 +36,11 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ===== Skip Link ===== */
+/* ===== Skip Link =====
+   Accessibility feature for keyboard users — the link is hidden off-screen
+   by default (top: -100px) and only appears when focused via Tab key.
+   This allows keyboard users to skip past the navigation directly to main content.
+   ===================== */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -44,13 +55,35 @@ html, body {
   top: 0;
 }
 
-/* ===== Navbar ===== */
+/* ===== Navbar =====
+   position: absolute takes the navbar out of normal document flow so it
+   overlays the hero image below it. z-index: 100 keeps it above the image.
+   The hero section uses position: relative as the positioning reference.
+   =================== */
+.navbar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* On mobile, the collapsed menu drops down over the hero image.
+   Without a background colour the links would be unreadable against the image,
+   so a semi-transparent beige background is added only when the menu is open (.show). */
+.navbar-overlay .navbar-collapse.show {
+  background-color: rgba(244, 236, 224, 0.95);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
 .nav-link {
   font-family: var(--font-body);
   color: var(--color-text);
 }
 
-/* !important overrides Bootstrap default */
+/* Bootstrap sets its own colour for .active links, so !important is needed
+   to override it with the brand orange. */
 .nav-link.active {
   color: var(--color-primary) !important;
   font-weight: 700;
@@ -63,7 +96,7 @@ html, body {
 /* ===== Footer ===== */
 .site-footer {
   background-color: var(--color-footer-bg);
-  padding: 40px 0;
+  padding: 50px 0;
   text-align: center;
 }
 
@@ -99,24 +132,32 @@ html, body {
 }
 
 @media (min-width: 1440px) {
+  .site-footer {
+      padding: 100px 0;
+  }
+
   .site-footer img {
       width: 150px;
   }
 }
 
 /* ===== Home - Hero ===== */
-.hero-wrapper {
+.hero-section {
   position: relative;
 }
 
-.hero-wrapper img {
+.hero-section picture {
+  display: block;
+}
+
+.hero-section img {
   width: 100%;
   display: block;
 }
 
 .hero-title {
   position: absolute;
-  top: 10%;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -126,6 +167,13 @@ html, body {
 .hero-title h1 {
   font-family: var(--font-heading);
   font-weight: 800;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 1440px) {
+  .hero-title h1 {
+    font-size: 3rem;
+  }
 }
 
 /* ===== Home - Our Projects ===== */
@@ -136,6 +184,7 @@ html, body {
 .our-projects h2 {
   font-family: var(--font-heading);
   font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .our-projects p {
@@ -153,16 +202,31 @@ html, body {
   white-space: nowrap;
 }
 
-/* overflow: hidden clips image to card border radius */
+/* ===== Project Card Image Overlay =====
+   CSS Grid is used to overlay the h3 title on top of the image.
+   Both the <picture> and the <h3> are placed in the same grid cell (1 / 1).
+   align-self: end pushes the title to the bottom of the cell.
+   This is more reliable than position: absolute because the grid cell
+   automatically sizes itself to the image height.
+   ======================================= */
 .project-card {
   border-radius: 12px;
   overflow: hidden;
+  display: grid;
+}
+
+.project-card picture {
+  display: block;
+  grid-area: 1 / 1;
 }
 
 .project-card h3 {
+  grid-area: 1 / 1;
+  align-self: end;
+  z-index: 1;
   font-family: var(--font-heading);
   font-weight: 700;
-  background-color: var(--color-card-beige);
+  background-color: rgba(255, 255, 255, 0.88);
   padding: 16px;
   margin: 0;
 }
@@ -188,13 +252,19 @@ html, body {
   color: var(--color-text);
 }
 
-/* height: 100% keeps cards in the same row equal height */
+/* height: 100% makes all three cards in the same row stretch to equal height,
+   so the row looks balanced even if one card has slightly more text. */
 .provide-card {
   padding: 24px;
   border-radius: 12px;
   height: 100%;
+  text-align: center;
 }
 
+/* Targeting the parent column (col-md-4) rather than the card itself.
+   Each card is the first child of its own column div, so .provide-card:nth-child(n)
+   would always match nth-child(1). Targeting the column instead correctly
+   selects the 1st, 2nd, and 3rd column in the row. */
 .col-md-4:nth-child(1) .provide-card {
   background-color: var(--color-card-blue);
 }
@@ -230,15 +300,19 @@ html, body {
 
 @media (min-width: 1440px) {
   .what-we-provide h2 {
-      font-size: 2rem;
+      font-size: 3.5rem;
+  }
+
+  .provide-card {
+      padding: 60px 40px;
   }
 
   .provide-card h3 {
-      font-size: 1.25rem;
+      font-size: 1.6rem;
   }
 
   .provide-card p {
-      font-size: 1rem;
+      font-size: 1.3rem;
   }
 }
 
@@ -266,11 +340,11 @@ html, body {
 
 @media (min-width: 1440px) {
   .experiences-section h2 {
-      font-size: 2rem;
+      font-size: 3.5rem;
   }
 
   .experiences-section p {
-      font-size: 1rem;
+      font-size: 1.3rem;
   }
 }
 
@@ -291,7 +365,7 @@ html, body {
 }
 
 .feedback-card {
-  padding: 24px;
+  padding: 40px;
   border-radius: 12px;
   height: 100%;
 }
@@ -313,6 +387,7 @@ html, body {
 .feedback-card .feedback-role {
   font-family: var(--font-body);
   color: var(--color-text);
+  font-size: 0.85rem;
 }
 
 .feedback-card p {
@@ -326,7 +401,11 @@ html, body {
 
 @media (min-width: 1440px) {
   .feedback-section h2 {
-      font-size: 2rem;
+      font-size: 3.5rem;
+  }
+
+  .feedback-card {
+      padding: 60px;
   }
 
   .feedback-card img {
@@ -368,6 +447,7 @@ html, body {
 .our-blogs h2 {
   font-family: var(--font-heading);
   font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .our-blogs > .container > p {
@@ -378,6 +458,9 @@ html, body {
 .blog-card {
   border-radius: 12px;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card img {
@@ -393,6 +476,7 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex: 1;
 }
 
 .blog-card-body h3 {
@@ -409,11 +493,11 @@ html, body {
 
 @media (min-width: 1440px) {
   .blog-card-body h3 {
-      font-size: 1.1rem;
+      font-size: 1.4rem;
   }
 
   .blog-card-body .blog-date {
-      font-size: 0.9rem;
+      font-size: 1.1rem;
   }
 }
 
@@ -492,6 +576,9 @@ html, body {
 .team-card {
   border-radius: 12px;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card img {
@@ -503,6 +590,7 @@ html, body {
   background-color: var(--color-card-beige);
   padding: 16px;
   text-align: center;
+  flex: 1;
 }
 
 .team-card-body h3 {
@@ -521,120 +609,105 @@ html, body {
 /* ===== Desktop (>=1440px) ===== */
 @media (min-width: 1440px) {
   .know-more h2 {
-      font-size: 2rem;
+      font-size: 4rem;
   }
 
   .know-more p {
-      font-size: 1rem;
+      font-size: 2rem;
   }
 
   .about-stats strong {
-      font-size: 1.5rem;
+      font-size: 3rem;
+  }
+
+  .about-stats span {
+      font-size: 2rem;
+  }
+
+  .btn-learn-more {
+      font-size: 1.2rem;
+      padding: 16px 40px;
   }
 }
 
-/* ===== Tablet (768px - 1439px) ===== */
+/* ===== Tablet (768px - 1439px) =====
+   At tablet width, Bootstrap switches to multi-column layout (col-md-*).
+   Font sizes for hero titles are increased here because the wider viewport
+   has more visual space — the default mobile size would look too small.
+   Section headings are left at their base size since 1.5rem already reads
+   well at tablet; they scale up again at desktop (1440px+).
+   ===================================== */
 @media (min-width: 768px) and (max-width: 1439px) {
 
-  /* Navbar */
-  .navbar-brand img {
-      width: 100px;
+  /* Hero h1 at tablet needs to be larger to fill the wider image */
+  .hero-title h1 {
+      font-size: 2.25rem;
   }
 
-  /* Hero (shared by Blog and About) */
+  /* Blog and About hero titles are centered over the background image */
   .blog-hero-title h1 {
       font-size: 1.8rem;
   }
 
-  /* Home - Our Projects */
-  .our-projects {
-      padding: 40px 0;
+  /* Section h2 headings scale up from mobile (1.5rem) at tablet */
+  .our-projects h2,
+  .what-we-provide h2,
+  .experiences-section h2,
+  .feedback-section h2,
+  .our-blogs h2,
+  .know-more h2,
+  .team-section h2 {
+      font-size: 1.7rem;
+  }
+}
+
+/* ===== Desktop spacing (>=1440px) =====
+   Bootstrap's default container max-width (~1320px) leaves large empty margins
+   on very wide monitors. Setting max-width to 90vw makes the layout scale
+   proportionally with the viewport width instead of being fixed.
+   All section paddings increase at this breakpoint to use the extra vertical
+   space that a large screen provides.
+   ======================================= */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 90vw;
   }
 
-  .our-projects h2 {
-      font-size: 1.3rem;
+  .blog-hero-title h1 {
+    font-size: 3.5rem;
   }
 
-  /* Home - What We Provide */
-  .what-we-provide {
-      padding: 40px 0;
+  /* Headings not covered in section-specific desktop blocks */
+  .our-projects h2,
+  .our-blogs h2,
+  .team-section h2 {
+    font-size: 3.5rem;
   }
 
-  .what-we-provide h2 {
-      font-size: 1.3rem;
+  .project-card h3 {
+    font-size: 1.5rem;
+    padding: 24px;
   }
 
-  .provide-card h3 {
-      font-size: 1rem;
+  .team-card-body {
+    padding: 48px 24px;
   }
 
-  .provide-card p {
-      font-size: 0.85rem;
+  .team-card-body h3 {
+    font-size: 1.5rem;
   }
 
-  /* Home - Experiences + Explore */
-  .experiences-section {
-      padding: 40px 0;
+  .team-card-body p {
+    font-size: 1.2rem;
   }
 
-  .experiences-section h2 {
-      font-size: 1.3rem;
-  }
-
-  .experiences-section p {
-      font-size: 0.85rem;
-  }
-
-  /* Home - Customers Feedback */
-  .feedback-section {
-      padding: 40px 0;
-  }
-
-  .feedback-section h2 {
-      font-size: 1.3rem;
-  }
-
-  /* Blog - Our Blogs */
-  .our-blogs {
-      padding: 40px 0;
-  }
-
-  .our-blogs h2 {
-      font-size: 1.3rem;
-  }
-
-  .blog-card-body h3 {
-      font-size: 0.95rem;
-  }
-
-  .blog-card-body .blog-date {
-      font-size: 0.8rem;
-  }
-
-  /* About - Know More */
-  .know-more {
-      padding: 40px 0;
-  }
-
-  .know-more h2 {
-      font-size: 1.3rem;
-  }
-
-  .know-more p {
-      font-size: 0.85rem;
-  }
-
-  .about-stats strong {
-      font-size: 1.1rem;
-  }
-
-  /* About - Team Members */
+  .our-projects,
+  .what-we-provide,
+  .experiences-section,
+  .feedback-section,
+  .our-blogs,
+  .know-more,
   .team-section {
-      padding: 40px 0;
-  }
-
-  /* Footer */
-  .site-footer img {
-      width: 100px;
+    padding: 120px 0;
   }
 }
